@@ -26,34 +26,34 @@ function getCountryByCurrency(code) {
     return "Unknown currency";
   }
 }
-console.log(getCountryByCurrency("USD")); // United States
-console.log(getCountryByCurrency("EUR")); // European Union
-console.log(getCountryByCurrency("GEL")); // Georgia
-console.log(getCountryByCurrency("JPY")); // Unknown currency
+console.log(getCountryByCurrency("USD"));
+console.log(getCountryByCurrency("EUR"));
+console.log(getCountryByCurrency("GEL"));
+console.log(getCountryByCurrency("JPY"));
 
 // EXERCISE 4
 function toLowercase(str) {
   return str.toLowerCase();
 }
-console.log(toLowercase("MY NAME IS TAMARI")); // my name is tamari
+console.log(toLowercase("MY NAME IS TAMARI"));
 
 // EXERCISE 5
-function filterGreaterThan100(numbers) {
-  return numbers.filter(function (num) {
-    return num > 100;
-  });
+
+function numbersGreaterThan100(numbers) {
+  return numbers.filter((number) => number > 100);
 }
 
-console.log(filterGreaterThan100([50, 120, 300, 80, 101]));
-// შედეგი: [120, 300, 101]
+// გამოყენების მაგალითი
+let nums = [50, 150, 200, 75, 120];
+resultFinal = numbersGreaterThan100(nums);
+console.log(resultFinal); // [150, 200, 120]
 
 // EXERCISE 6
+// ფუნქცია, რომელიც იღებს products მასივს და აბრუნებს ყველაზე იაფ პროდუქტს
 function getCheapestProduct(products) {
-  if (!products || products.length === 0) {
-    return null; // თუ მასივი ცარიელია ან არ არის გადაცემული
-  }
+  if (!products || products.length === 0) return null;
 
-  let cheapest = products[0]; // ვაყენებთ პირველ ელემენტს თავდაპირველ უმცირესად
+  let cheapest = products[0];
 
   for (let i = 1; i < products.length; i++) {
     if (products[i].price < cheapest.price) {
@@ -64,28 +64,20 @@ function getCheapestProduct(products) {
   return cheapest;
 }
 
-// გამოყენება:
-import { data } from "./data.js";
-
 const cheapestProduct = getCheapestProduct(data.products);
 console.log(cheapestProduct);
 
-// შედეგი: { name: "Product C", price: 50 }
-
 // EXERCISE 7
-function findById(array, idToFind) {
-  return array.find((item) => item.id === idToFind);
+// ფუნქცია იღებს ობიექტების მასივს და id-ს სტრინგად
+function findById(array, id) {
+  return array.find((item) => item.id.toString() === id);
 }
 
 const products = [
-  { id: "101", name: "Laptop" },
-  { id: "102", name: "Phone" },
-  { id: "103", name: "Tablet" },
+  { id: 1, name: "HP Notebook" },
+  { id: 2, name: "MacBook Air" },
+  { id: 3, name: "ASUS Vivobook" },
 ];
 
-console.log(findById(products, "102"));
-s;
-// შედეგი: { id: "102", name: "Phone" }
-
-console.log(findById(products, "999"));
-// შედეგი: undefined
+const result = findById(products, "2");
+console.log(result); // { id: 2, name: "MacBook Air" }

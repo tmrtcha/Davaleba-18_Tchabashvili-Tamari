@@ -1,4 +1,4 @@
-export const data = {
+const data = {
   products: [
     {
       id: 8853,
@@ -631,6 +631,3 @@ export const data = {
   success: true,
   errors: [],
 };
-
-export const products = [];
-export const users = [];
